@@ -16,29 +16,15 @@ public class RandomScheduler {
         this.rnd = rnd;
     }
 
-    // Случайно распихивает все таски из списка по нодам
-    public Schedule initSchedule(Context ctx, ArrayList<TaskStart> events) {
-        Schedule sched = new Schedule();
+    public Schedule schedule(Context ctx, ArrayList<Task> tasks) {
+        Schedule curSched = ctx.getSchedule().clone();
         ArrayList<Node> nodes = ctx.getNodes();
-        sched.addNodes(nodes);
-        while (!events.isEmpty()) {
-            TaskStart ts = events.remove(rnd.nextInt(events.size()));
+        for (Task t : tasks) {
             Node n = nodes.get(rnd.nextInt(nodes.size()));
-            double nTime = sched.getNodeLastTime(n);
-            sched.getSchedule().get(n).add(new SchedItem(n, ts.getTask(), nTime, nTime + ts.getTask().getExecCost()));
+            double nTime = curSched.getNodeLastTime(n);
+            double endTime = nTime + t.getExecCost();
+            curSched.getSchedule().get(n).add(new SchedItem(n, t, nTime, endTime));
         }
-        return sched;
-    }
-
-    // Назначает заданную таску на случайный нод и добавляет событие завершения таски в очередь
-    public Schedule schedule(Context ctx, EventQueue eq, TaskStart ts) {
-        Schedule curSched = ctx.getSchedule();
-        ArrayList<Node> nodes = ctx.getNodes();
-        Node n = nodes.get(rnd.nextInt(nodes.size()));
-        double nTime = curSched.getNodeLastTime(n);
-        double endTime = nTime + ts.getTask().getExecCost();
-        curSched.getSchedule().get(n).add(new SchedItem(n, ts.getTask(), nTime, endTime));
-        eq.addEvent(new TaskEnd(ts.getName(), ts.getTask(), endTime));
         return curSched;
     }
 

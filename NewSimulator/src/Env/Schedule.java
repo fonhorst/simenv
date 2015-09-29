@@ -37,4 +37,15 @@ public class Schedule {
         return nodeTasks.get(nodeTasks.size() - 1).getEndTime();
     }
 
+    public Schedule clone() {
+        Schedule copy = new Schedule();
+        for (Node n : schedule.keySet()) {
+            copy.addNode(n);
+            for (SchedItem si : schedule.get(n)) {
+                copy.schedule.get(n).add(si);
+            }
+        }
+        return copy;
+    }
+
 }

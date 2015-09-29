@@ -6,6 +6,7 @@ package Env;
 public class Node {
 
     private String name;
+    private Task execTask;
 
     public Node(String name){
         this.name = name;
@@ -13,5 +14,17 @@ public class Node {
 
     public String getName() {
         return name;
+    }
+
+    public void taskExecute(Task t) {
+        execTask = t;
+    }
+
+    public void taskFinished() {
+        execTask = null;
+    }
+
+    public boolean isFree() {
+        return execTask == null;
     }
 }

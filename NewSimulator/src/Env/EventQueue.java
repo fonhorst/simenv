@@ -11,22 +11,10 @@ public class EventQueue {
 
     private ArrayList<Event> eq;
 
-    public EventQueue(Schedule initSchedule) {
+    public EventQueue() {
         eq = new ArrayList<Event>();
-        scheduleToEventQueue(initSchedule);
     }
 
-    public void scheduleToEventQueue(Schedule sched) {
-        for (Node n: sched.getSchedule().keySet()) {
-            eq.addAll(sched.getSchedule().get(n).stream().map(si -> new TaskStart(si.getTask().getName(), si.getTask(), si.getStartTime())).collect(Collectors.toList()));
-        }
-        eq.sort(new Comparator<Event>() {
-            @Override
-            public int compare(Event o1, Event o2) {
-                return Double.compare(o1.getTime(), o2.getTime());
-            }
-        });
-    }
 
     public Event next() {
         return eq.remove(0);

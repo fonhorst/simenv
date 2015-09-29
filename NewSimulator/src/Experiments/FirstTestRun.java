@@ -18,7 +18,6 @@ public class FirstTestRun {
 
         Random rnd = new Random();
 
-        // Считываем сэт нодов и тасков
         ArrayList<Node> nodes = new ArrayList<Node>();
         nodes.add(new Node("n1"));
         nodes.add(new Node("n2"));
@@ -28,23 +27,17 @@ public class FirstTestRun {
         tasks.add(new Task("t3", 10));
         tasks.add(new Task("t4", 10));
 
-        // Генерируем события из тасков
-        ArrayList<TaskStart> initEvents = new ArrayList<TaskStart>();
-        initEvents.addAll(tasks.stream().map(t -> new TaskStart(t.getName(), t, 0)).collect(Collectors.toList()));
-
         RandomScheduler rndScheduler = new RandomScheduler(rnd);
 
-        // Инициализация контекста с нодами
-        Context ctx = new Context();
+        Context ctx = new Context(rnd);
         for (Node n: nodes) {
             ctx.addNode(n);
         }
 
-        // Генерируем начальное расписание и на его основе создаём EventQueue. Само расписание не принимается
-        Schedule initSched = rndScheduler.initSchedule(ctx, initEvents);
-        EventQueue eq = new EventQueue(initSched);
+        EventQueue eq = new EventQueue();
+        Schedule initSched = rndScheduler.schedule(ctx, tasks);
+        ctx.applySchedule(initSched, eq);
 
-        // Идём по событиям
         while (!eq.isEmpty()) {
             Event curEvent = eq.next();
             if (ctx.getTime() < curEvent.getTime()) {
@@ -54,15 +47,26 @@ public class FirstTestRun {
             System.out.println("----");
             System.out.println("Current time = " + ctx.getTime());
 
-            if (curEvent instanceof TaskStart) {
-                System.out.println("Schedule task " + curEvent.getName());
-                Schedule newSchedule = rndScheduler.schedule(ctx, eq, (TaskStart) curEvent);
-                ctx.setSchedule(newSchedule);
-                System.out.println("Task has been scheduled");
+            if (curEvent instanceof TaskEnd) {
+                ((TaskEnd) curEvent).getNode();
+                System.out.println("Task finished " + curEvent.getName());
+                Node eNode = ((TaskEnd) curEvent).getNode();
+                eNode.taskFinished();
+                Task newTask = ctx.getSchedule().getSchedule().get(eNode).get(0).getTask();
+                if (rnd.nextDouble() > 0.5) {
+                    eNode.taskExecute(newTask);
+                    ctx.getSchedule().getSchedule().get(eNode).remove(0);
+                    eq.addEvent(new TaskEnd(newTask.getName(), newTask, ctx.getTime() + newTask.getExecCost(), eNode));
+                    System.out.println("new Task has been started");
+                } else {
+                    eq.addEvent(new TaskFailed(newTask.getName(), newTask, ctx.getTime(), eNode));
+                    System.out.println("Next Task failed");
+                }
             }
 
-            if (curEvent instanceof TaskEnd) {
-                System.out.println("Task " + curEvent.getName() + " has finished at " + curEvent.getTime());
+            if (curEvent instanceof TaskFailed) {
+                System.out.println("Task " + curEvent.getName() + " has failed at " + curEvent.getTime());
+                // reschedule
             }
         }
 
