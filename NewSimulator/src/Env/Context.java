@@ -11,7 +11,7 @@ public class Context {
     private Schedule schedule;
     private double time;
     private ArrayList<Node> nodes;
-    private Random rnd;
+    public Random rnd;
 
     public Context(Random rnd) {
         this.rnd = rnd;
@@ -45,7 +45,7 @@ public class Context {
             }
             if (n.isFree()) {
                 Task curTask = schedule.getSchedule().get(n).get(0).getTask();
-                if (rnd.nextDouble() > 0.5) {
+                if (rnd.nextDouble() > 0) {
                     n.taskExecute(curTask);
                     schedule.getSchedule().get(n).remove(curTask);
                     eq.addEvent(new TaskEnd(curTask.getName(), curTask, time + curTask.getExecCost(), n));

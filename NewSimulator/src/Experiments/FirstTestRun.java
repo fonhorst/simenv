@@ -48,20 +48,7 @@ public class FirstTestRun {
             System.out.println("Current time = " + ctx.getTime());
 
             if (curEvent instanceof TaskEnd) {
-                ((TaskEnd) curEvent).getNode();
-                System.out.println("Task finished " + curEvent.getName());
-                Node eNode = ((TaskEnd) curEvent).getNode();
-                eNode.taskFinished();
-                Task newTask = ctx.getSchedule().getSchedule().get(eNode).get(0).getTask();
-                if (rnd.nextDouble() > 0.5) {
-                    eNode.taskExecute(newTask);
-                    ctx.getSchedule().getSchedule().get(eNode).remove(0);
-                    eq.addEvent(new TaskEnd(newTask.getName(), newTask, ctx.getTime() + newTask.getExecCost(), eNode));
-                    System.out.println("new Task has been started");
-                } else {
-                    eq.addEvent(new TaskFailed(newTask.getName(), newTask, ctx.getTime(), eNode));
-                    System.out.println("Next Task failed");
-                }
+                EventHandler.taskEnd((TaskEnd)curEvent, ctx, eq);
             }
 
             if (curEvent instanceof TaskFailed) {
