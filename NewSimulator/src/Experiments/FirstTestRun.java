@@ -22,10 +22,10 @@ public class FirstTestRun {
         nodes.add(new Node("n1"));
         nodes.add(new Node("n2"));
         ArrayList<Task> tasks = new ArrayList<Task>();
-        tasks.add(new Task("t1", 10));
-        tasks.add(new Task("t2", 10));
+        tasks.add(new Task("t1", 5));
+        tasks.add(new Task("t2", 15));
         tasks.add(new Task("t3", 10));
-        tasks.add(new Task("t4", 10));
+        tasks.add(new Task("t4", 20));
 
         RandomScheduler rndScheduler = new RandomScheduler(rnd);
 
@@ -48,12 +48,15 @@ public class FirstTestRun {
             System.out.println("Current time = " + ctx.getTime());
 
             if (curEvent instanceof TaskEnd) {
+                // Launch next task from event's node schedule, and generate new event for this new task
+                System.out.println("Task " + curEvent.getName() + " has been finished at " + curEvent.getTime());
                 EventHandler.taskEnd((TaskEnd)curEvent, ctx, eq);
             }
 
             if (curEvent instanceof TaskFailed) {
-                System.out.println("Task " + curEvent.getName() + " has failed at " + curEvent.getTime());
-                // reschedule
+                // Task fail launches rescheduling
+                System.out.println("Task " + curEvent.getName() + " has been failed at " + curEvent.getTime());
+                EventHandler.taskFail((TaskFailed)curEvent, ctx, eq, rndScheduler);
             }
         }
 

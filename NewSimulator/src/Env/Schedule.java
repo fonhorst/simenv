@@ -37,6 +37,7 @@ public class Schedule {
         return nodeTasks.get(nodeTasks.size() - 1).getEndTime();
     }
 
+    // TODO Java should has some standard clone methods
     public Schedule clone() {
         Schedule copy = new Schedule();
         for (Node n : schedule.keySet()) {

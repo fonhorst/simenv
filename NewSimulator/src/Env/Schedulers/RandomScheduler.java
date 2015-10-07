@@ -8,6 +8,8 @@ import java.util.Random;
 /**
  * Created by Mishanya on 26.09.2015.
  */
+
+// TODO create interface for Schedulers, and implement that
 public class RandomScheduler {
 
     private Random rnd;
@@ -26,6 +28,21 @@ public class RandomScheduler {
             curSched.getSchedule().get(n).add(new SchedItem(n, t, nTime, endTime));
         }
         return curSched;
+    }
+
+    // Prepare context to scheduling
+    public ArrayList<Task> reschedule(Context ctx) {
+        Schedule curSched = ctx.getSchedule();
+        Double curTime = ctx.getTime();
+        ArrayList<Task> reschedTasks = new ArrayList<Task>();
+        for (Node node : curSched.getSchedule().keySet()) {
+            ArrayList<SchedItem> nodeSched = curSched.getSchedule().get(node);
+            for (SchedItem si : nodeSched) {
+                reschedTasks.add(si.getTask());
+            }
+            curSched.getSchedule().put(node, new ArrayList<SchedItem>());
+        }
+        return reschedTasks;
     }
 
 }

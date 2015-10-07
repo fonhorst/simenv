@@ -7,7 +7,7 @@ import java.util.Random;
  * Created by Mishanya on 24.09.2015.
  */
 public class Context {
-
+    // TODO traverse schedule's functions
     private Schedule schedule;
     private double time;
     private ArrayList<Node> nodes;
@@ -43,8 +43,9 @@ public class Context {
             for (SchedItem si : curItems) {
                 schedule.getSchedule().get(n).add(si);
             }
-            if (n.isFree()) {
+            if (n.isFree() && schedule.getSchedule().get(n).size() > 0) {
                 Task curTask = schedule.getSchedule().get(n).get(0).getTask();
+                // TODO do it via TaskFailer, which will generate one of these two events
                 if (rnd.nextDouble() > 0) {
                     n.taskExecute(curTask);
                     schedule.getSchedule().get(n).remove(curTask);

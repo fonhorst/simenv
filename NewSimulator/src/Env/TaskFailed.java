@@ -20,12 +20,12 @@ public class TaskFailed extends Event {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public double getTime() {
-        return 0;
+        return time;
     }
 
     public Node getNode() {
