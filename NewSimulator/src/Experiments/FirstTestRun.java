@@ -1,14 +1,18 @@
 package Experiments;
 
 import Env.*;
-import Env.Event;
+import Env.Entities.Node;
+import Env.Entities.Schedule;
+import Env.Entities.Task;
+import Env.Events.Event;
 import Env.EventQueue;
+import Env.Events.TaskEnd;
+import Env.Events.TaskFailed;
 import Env.Schedulers.RandomScheduler;
+import Env.Schedulers.Scheduler;
 import Utilities.ScheduleVisualizer;
 
-import javax.swing.*;
 import javax.xml.transform.TransformerException;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -29,46 +33,12 @@ public class FirstTestRun {
         tasks.add(new Task("t2", 15));
         tasks.add(new Task("t3", 10));
         tasks.add(new Task("t4", 20));
+        tasks.add(new Task("t5", 5));
+        tasks.add(new Task("t6", 10));
 
-        RandomScheduler rndScheduler = new RandomScheduler(rnd);
-
-        Context ctx = new Context(rnd);
-        ctx.addNodes(nodes);
-
-        EventQueue eq = new EventQueue();
-        Schedule initSched = rndScheduler.schedule(ctx, tasks);
-        ctx.applySchedule(initSched, eq);
-
-        ScheduleVisualizer schedVisual = new ScheduleVisualizer();
-
-        boolean isDebug = true;
-
-        while (!eq.isEmpty()) {
-
-            if (isDebug) {
-                schedVisual.schedVisualize(ctx.getSchedule());
-            }
-
-            Event curEvent = eq.next();
-            if (ctx.getTime() < curEvent.getTime()) {
-                ctx.setTime(curEvent.getTime());
-            }
-
-            System.out.println("----");
-            System.out.println("Current time = " + ctx.getTime());
-
-            if (curEvent instanceof TaskEnd) {
-                // Launch next task from event's node schedule, and generate new event for this new task
-                System.out.println("Task " + curEvent.getName() + " has been finished at " + curEvent.getTime());
-                EventHandler.taskEnd((TaskEnd)curEvent, ctx, eq);
-            }
-
-            if (curEvent instanceof TaskFailed) {
-                // Task fail launches rescheduling
-                System.out.println("Task " + curEvent.getName() + " has been failed at " + curEvent.getTime());
-                EventHandler.taskFail((TaskFailed)curEvent, ctx, eq, rndScheduler);
-            }
-        }
+        Scheduler rndScheduler = new RandomScheduler(rnd);
+        Simulator sim = new Simulator(rndScheduler, nodes, tasks, rnd);
+        Context ctx = sim.simualate();
 
         System.out.println("====");
         System.out.println("Finish time " + ctx.getTime());

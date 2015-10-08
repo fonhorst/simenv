@@ -1,6 +1,13 @@
 package Env;
 
+import Env.Entities.Node;
+import Env.Entities.SchedItem;
+import Env.Entities.Schedule;
+import Env.Entities.Task;
+import Env.Events.TaskEnd;
+import Env.Events.TaskFailed;
 import Env.Schedulers.RandomScheduler;
+import Env.Schedulers.Scheduler;
 
 import java.util.ArrayList;
 
@@ -18,11 +25,12 @@ public class EventHandler {
             return;
         }
         Task nextTask = nodeSched.get(0).getTask();
+        SchedItem si = nodeSched.get(0);
         // TODO do it via TaskFailer, which will generate one of these two events
         if (ctx.rnd.nextDouble() > 0.5) {
-            eNode.taskExecute(nextTask, ctx.getTime());
+            eNode.taskExecute(si);
             ctx.getSchedule().getSchedule().get(eNode).remove(0);
-            eq.addEvent(new TaskEnd(nextTask.getName(), nextTask, ctx.getTime() + nextTask.getExecCost(), eNode));
+            eq.addEvent(new TaskEnd(nextTask.getName(), nextTask, si.getEndTime(), eNode));
         } else {
             eq.addEvent(new TaskFailed(nextTask.getName(), nextTask, ctx.getTime(), eNode));
         }
@@ -30,8 +38,7 @@ public class EventHandler {
         eq.sort();
     }
 
-    // TODO change RandoScheduler to interface Scheduler
-    public static void taskFail(TaskFailed event, Context ctx, EventQueue eq, RandomScheduler scheduler) {
+    public static void taskFail(TaskFailed event, Context ctx, EventQueue eq, Scheduler scheduler) {
         System.out.println("Rescheduling...");
         ArrayList<Task> tasks = scheduler.reschedule(ctx);
         Schedule newSched = scheduler.schedule(ctx, tasks);

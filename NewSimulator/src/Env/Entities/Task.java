@@ -1,4 +1,4 @@
-package Env;
+package Env.Entities;
 
 /**
  * Created by Mishanya on 24.09.2015.

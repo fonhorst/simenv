@@ -1,6 +1,10 @@
 package Env.Schedulers;
 
 import Env.*;
+import Env.Entities.Node;
+import Env.Entities.SchedItem;
+import Env.Entities.Schedule;
+import Env.Entities.Task;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -9,8 +13,7 @@ import java.util.Random;
  * Created by Mishanya on 26.09.2015.
  */
 
-// TODO create interface for Schedulers, and implement that
-public class RandomScheduler {
+public class RandomScheduler implements Scheduler {
 
     private Random rnd;
 
@@ -23,7 +26,7 @@ public class RandomScheduler {
         ArrayList<Node> nodes = ctx.getNodes();
         for (Task t : tasks) {
             Node n = nodes.get(rnd.nextInt(nodes.size()));
-            double nTime = curSched.getNodeLastTime(n);
+            double nTime = curSched.getNodeLastTime(ctx, n);
             double endTime = nTime + t.getExecCost();
             curSched.getSchedule().get(n).add(new SchedItem(n, t, nTime, endTime));
         }

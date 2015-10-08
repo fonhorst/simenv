@@ -1,10 +1,9 @@
 package Utilities;
 
-import Env.Node;
-import Env.SchedItem;
-import Env.Schedule;
+import Env.Entities.Node;
+import Env.Entities.SchedItem;
+import Env.Entities.Schedule;
 import net.sf.jedule.JeduleStarter;
-import net.sf.jedule.schedule.Jedule;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
@@ -22,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
@@ -30,11 +30,19 @@ import java.util.ArrayList;
  */
 public class ScheduleVisualizer {
 
+    int counter;
 
     public ScheduleVisualizer() {
+        counter = 0;
     }
 
     public void schedVisualize(Schedule sched) throws TransformerException {
+
+        File tempDir = new File("./temp");
+        if (!tempDir.exists()) {
+            tempDir.mkdir();
+        }
+
         DocumentBuilder db = null;
         try {
             db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -57,7 +65,7 @@ public class ScheduleVisualizer {
 
                     "<task id=\"executing\">" +
                         "<color type=\"fg\" rgb=\"FFFFFF\" />" +
-                        "<color type=\"bg\" rgb=\"FF0000\" />" +
+                        "<color type=\"bg\" rgb=\"00FF00\" />" +
                     "</task>" +
 
                     "<composite>" +
@@ -98,13 +106,14 @@ public class ScheduleVisualizer {
         jedArgs[4] = "-d";
         jedArgs[5] = "320x480";
         jedArgs[6] = "-o";
-        jedArgs[7] = "./temp/temppng.png";
+        jedArgs[7] = "./temp/temppng" + counter + ".png";
         jedArgs[8] = "-gt";
         jedArgs[9] = "png";
         jedArgs[10] = "-cm";
         jedArgs[11] = "./temp/tempcmap.xml";
-        JeduleStarter.main(jedArgs);
 
+        JeduleStarter.main(jedArgs);
+        counter++;
         try {
             Files.delete(Paths.get(jedArgs[3]));
             Files.delete(Paths.get(jedArgs[11]));

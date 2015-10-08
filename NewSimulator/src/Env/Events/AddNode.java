@@ -1,9 +1,11 @@
-package Env;
+package Env.Events;
+
+import Env.Entities.Node;
 
 /**
  * Created by Mishanya on 24.09.2015.
  */
-public class AddNode extends Event {
+public class AddNode implements Event {
 
     private String name;
     private Node node;

@@ -1,4 +1,6 @@
-package Env;
+package Env.Entities;
+
+import Env.Context;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,10 +25,10 @@ public class Schedule {
         return schedule;
     }
 
-    public double getNodeLastTime(Node n) {
+    public double getNodeLastTime(Context ctx, Node n) {
         ArrayList<SchedItem> nodeTasks = schedule.get(n);
         if (nodeTasks.isEmpty()) {
-            return 0;
+            return ctx.getTime();
         }
         return nodeTasks.get(nodeTasks.size() - 1).getEndTime();
     }

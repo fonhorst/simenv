@@ -1,5 +1,12 @@
 package Env;
 
+import Env.Entities.Node;
+import Env.Entities.SchedItem;
+import Env.Entities.Schedule;
+import Env.Entities.Task;
+import Env.Events.TaskEnd;
+import Env.Events.TaskFailed;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -49,11 +56,13 @@ public class Context {
             }
             if (n.isFree() && schedule.getSchedule().get(n).size() > 0) {
                 Task curTask = schedule.getSchedule().get(n).get(0).getTask();
+                SchedItem si = schedule.getSchedule().get(n).get(0);
                 // TODO do it via TaskFailer, which will generate one of these two events
                 if (rnd.nextDouble() > 0) {
-                    n.taskExecute(curTask, time);
-                    schedule.getSchedule().get(n).remove(curTask);
-                    eq.addEvent(new TaskEnd(curTask.getName(), curTask, time + curTask.getExecCost(), n));
+                    // TODO refactor repeated schedule.getSchedule().get....
+                    n.taskExecute(si);
+                    schedule.getSchedule().get(n).remove(0);
+                    eq.addEvent(new TaskEnd(curTask.getName(), curTask, si.getEndTime(), n));
                 } else {
                     eq.addEvent(new TaskFailed(curTask.getName(), curTask, time, n));
                 }

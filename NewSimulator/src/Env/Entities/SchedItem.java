@@ -1,4 +1,7 @@
-package Env;
+package Env.Entities;
+
+import Env.Entities.Node;
+import Env.Entities.Task;
 
 /**
  * Created by Mishanya on 24.09.2015.

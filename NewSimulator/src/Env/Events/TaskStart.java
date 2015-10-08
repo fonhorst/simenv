@@ -1,20 +1,20 @@
-package Env;
+package Env.Events;
+
+import Env.Entities.Task;
 
 /**
  * Created by Mishanya on 24.09.2015.
  */
-public class TaskEnd extends Event{
+public class TaskStart implements Event {
 
     private String name;
     private Task task;
     private double time;
-    private Node node;
 
-    public TaskEnd(String name, Task task, double time, Node node) {
+    public TaskStart(String name, Task task, double time) {
         this.name = name;
         this.task = task;
         this.time = time;
-        this.node = node;
     }
 
     public Task getTask() {
@@ -29,9 +29,5 @@ public class TaskEnd extends Event{
     @Override
     public String getName() {
         return name;
-    }
-
-    public Node getNode() {
-        return node;
     }
 }
