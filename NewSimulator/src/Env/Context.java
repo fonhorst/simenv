@@ -17,12 +17,16 @@ public class Context {
         this.rnd = rnd;
         this.schedule = new Schedule();
         this.time = 0;
-        this.nodes = new ArrayList<Node>();
+        this.nodes = new ArrayList<>();
     }
 
     public void addNode(Node n){
         nodes.add(n);
         schedule.addNode(n);
+    }
+
+    public void addNodes(ArrayList<Node> nodes) {
+        nodes.forEach(this::addNode);
     }
 
     public ArrayList<Node> getNodes() {
@@ -47,7 +51,7 @@ public class Context {
                 Task curTask = schedule.getSchedule().get(n).get(0).getTask();
                 // TODO do it via TaskFailer, which will generate one of these two events
                 if (rnd.nextDouble() > 0) {
-                    n.taskExecute(curTask);
+                    n.taskExecute(curTask, time);
                     schedule.getSchedule().get(n).remove(curTask);
                     eq.addEvent(new TaskEnd(curTask.getName(), curTask, time + curTask.getExecCost(), n));
                 } else {
@@ -55,7 +59,7 @@ public class Context {
                 }
             }
         }
-
+        eq.sort();
     }
 
     public double getTime() {

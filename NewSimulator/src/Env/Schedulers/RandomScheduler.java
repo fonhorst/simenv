@@ -33,14 +33,13 @@ public class RandomScheduler {
     // Prepare context to scheduling
     public ArrayList<Task> reschedule(Context ctx) {
         Schedule curSched = ctx.getSchedule();
-        Double curTime = ctx.getTime();
-        ArrayList<Task> reschedTasks = new ArrayList<Task>();
+        ArrayList<Task> reschedTasks = new ArrayList<>();
         for (Node node : curSched.getSchedule().keySet()) {
             ArrayList<SchedItem> nodeSched = curSched.getSchedule().get(node);
             for (SchedItem si : nodeSched) {
                 reschedTasks.add(si.getTask());
             }
-            curSched.getSchedule().put(node, new ArrayList<SchedItem>());
+            curSched.getSchedule().put(node, new ArrayList<>());
         }
         return reschedTasks;
     }

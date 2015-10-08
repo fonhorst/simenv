@@ -30,11 +30,6 @@ public class EventQueue {
     }
 
     public void sort() {
-        Collections.sort(eq, new Comparator<Event>() {
-            @Override
-            public int compare(Event o1, Event o2) {
-                return Double.compare(o1.getTime(), o2.getTime());
-            }
-        });
+        Collections.sort(eq, (o1, o2) -> Double.compare(o1.getTime(), o2.getTime()));
     }
 }

@@ -19,12 +19,6 @@ public class Schedule {
         schedule.put(n, new ArrayList<SchedItem>());
     }
 
-    public void addNodes(ArrayList<Node> nodes) {
-        for (Node n: nodes) {
-            addNode(n);
-        }
-    }
-
     public Map<Node, ArrayList<SchedItem>> getSchedule() {
         return schedule;
     }

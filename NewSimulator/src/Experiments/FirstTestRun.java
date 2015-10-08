@@ -4,17 +4,20 @@ import Env.*;
 import Env.Event;
 import Env.EventQueue;
 import Env.Schedulers.RandomScheduler;
+import Utilities.ScheduleVisualizer;
 
+import javax.swing.*;
+import javax.xml.transform.TransformerException;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 /**
  * Created by Mishanya on 24.09.2015.
  */
 public class FirstTestRun {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TransformerException {
 
         Random rnd = new Random();
 
@@ -30,15 +33,22 @@ public class FirstTestRun {
         RandomScheduler rndScheduler = new RandomScheduler(rnd);
 
         Context ctx = new Context(rnd);
-        for (Node n: nodes) {
-            ctx.addNode(n);
-        }
+        ctx.addNodes(nodes);
 
         EventQueue eq = new EventQueue();
         Schedule initSched = rndScheduler.schedule(ctx, tasks);
         ctx.applySchedule(initSched, eq);
 
+        ScheduleVisualizer schedVisual = new ScheduleVisualizer();
+
+        boolean isDebug = true;
+
         while (!eq.isEmpty()) {
+
+            if (isDebug) {
+                schedVisual.schedVisualize(ctx.getSchedule());
+            }
+
             Event curEvent = eq.next();
             if (ctx.getTime() < curEvent.getTime()) {
                 ctx.setTime(curEvent.getTime());

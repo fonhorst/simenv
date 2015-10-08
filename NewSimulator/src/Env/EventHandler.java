@@ -20,7 +20,7 @@ public class EventHandler {
         Task nextTask = nodeSched.get(0).getTask();
         // TODO do it via TaskFailer, which will generate one of these two events
         if (ctx.rnd.nextDouble() > 0.5) {
-            eNode.taskExecute(nextTask);
+            eNode.taskExecute(nextTask, ctx.getTime());
             ctx.getSchedule().getSchedule().get(eNode).remove(0);
             eq.addEvent(new TaskEnd(nextTask.getName(), nextTask, ctx.getTime() + nextTask.getExecCost(), eNode));
         } else {
