@@ -68,6 +68,11 @@ public class ScheduleVisualizer {
                         "<color type=\"bg\" rgb=\"00FF00\" />" +
                     "</task>" +
 
+                    "<task id=\"failed\">" +
+                    "<color type=\"fg\" rgb=\"FFFFFF\" />" +
+                    "<color type=\"bg\" rgb=\"FF0000\" />" +
+                    "</task>" +
+
                     "<composite>" +
                         "<task id=\"waiting\" />" +
                         "<task id=\"executing\" />" +
@@ -174,7 +179,11 @@ public class ScheduleVisualizer {
                 if (nodesSched.indexOf(si) == 0) {
                     node_type.setAttribute("value", "executing");
                 } else {
-                    node_type.setAttribute("value", "waiting");
+                    if (si.isFailed()) {
+                        node_type.setAttribute("value", "failed");
+                    } else {
+                        node_type.setAttribute("value", "waiting");
+                    }
                 }
 
                 Element node_startTime = doc.createElement("node_property");

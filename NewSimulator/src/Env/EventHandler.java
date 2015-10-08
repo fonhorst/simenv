@@ -33,6 +33,7 @@ public class EventHandler {
             eq.addEvent(new TaskEnd(nextTask.getName(), nextTask, si.getEndTime(), eNode));
         } else {
             eq.addEvent(new TaskFailed(nextTask.getName(), nextTask, ctx.getTime(), eNode));
+            si.setStatus(true);
         }
         // TODO Insert only this event in right place, without sorting
         eq.sort();

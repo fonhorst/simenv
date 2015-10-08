@@ -65,6 +65,7 @@ public class Context {
                     eq.addEvent(new TaskEnd(curTask.getName(), curTask, si.getEndTime(), n));
                 } else {
                     eq.addEvent(new TaskFailed(curTask.getName(), curTask, time, n));
+                    si.setStatus(true);
                 }
             }
         }

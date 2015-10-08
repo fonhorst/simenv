@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="519cbc99-a7a1-478c-89ec-f81958f33897" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jedule-0.3.2.jar" />
+      <change type="DELETED" beforePath="D:\Projects\simenv\NewSimulator\temp\.gitkeep" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Env/Context.java" afterPath="$PROJECT_DIR$/src/Env/Context.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Env/EventHandler.java" afterPath="$PROJECT_DIR$/src/Env/EventHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Env/Entities/SchedItem.java" afterPath="$PROJECT_DIR$/src/Env/Entities/SchedItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Env/Entities/Schedule.java" afterPath="$PROJECT_DIR$/src/Env/Entities/Schedule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Utilities/ScheduleVisualizer.java" afterPath="$PROJECT_DIR$/src/Utilities/ScheduleVisualizer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NewSimulator.iws" />
@@ -26,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FirstTestRun.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FirstTestRun.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Experiments/FirstTestRun.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43490306">
-              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#791#797#0" expanded="true" />
@@ -43,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/src/Env/Simulator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,17 +60,7 @@
         <entry file="file://$PROJECT_DIR$/src/Env/EventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Context.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Env/Context.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="85" selection-start-line="66" selection-start-column="85" selection-end-line="66" selection-end-column="85" />
+              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -75,36 +70,49 @@
         <entry file="file://$PROJECT_DIR$/src/Env/Schedulers/RandomScheduler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Schedule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Env/Entities/Schedule.java">
+      <file leaf-file-name="SchedItem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Env/Entities/SchedItem.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#269#270#0" expanded="true" />
-                <element signature="e#342#343#0" expanded="true" />
-                <element signature="e#377#378#0" expanded="true" />
-                <element signature="e#436#437#0" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#603#604#0" expanded="true" />
+                <element signature="e#630#631#0" expanded="true" />
+                <element signature="e#807#808#0" expanded="true" />
+                <element signature="e#840#841#0" expanded="true" />
+                <element signature="e#872#873#0" expanded="true" />
+                <element signature="e#908#909#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScheduleVisualizer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScheduleVisualizer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Utilities/ScheduleVisualizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.29520866">
+              <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Context.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Env/Context.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -145,12 +153,13 @@
         <option value="$PROJECT_DIR$/src/Env/Schedulers/Scheduler.java" />
         <option value="$PROJECT_DIR$/src/Env/Entities/Node.java" />
         <option value="$PROJECT_DIR$/src/Env/Simulator.java" />
-        <option value="$PROJECT_DIR$/src/Utilities/ScheduleVisualizer.java" />
-        <option value="$PROJECT_DIR$/src/Env/Entities/Schedule.java" />
         <option value="$PROJECT_DIR$/src/Env/Schedulers/RandomScheduler.java" />
+        <option value="$PROJECT_DIR$/src/Experiments/FirstTestRun.java" />
+        <option value="$PROJECT_DIR$/src/Env/Entities/Schedule.java" />
         <option value="$PROJECT_DIR$/src/Env/Context.java" />
         <option value="$PROJECT_DIR$/src/Env/EventHandler.java" />
-        <option value="$PROJECT_DIR$/src/Experiments/FirstTestRun.java" />
+        <option value="$PROJECT_DIR$/src/Env/Entities/SchedItem.java" />
+        <option value="$PROJECT_DIR$/src/Utilities/ScheduleVisualizer.java" />
       </list>
     </option>
   </component>
@@ -223,7 +232,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="temp" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NewSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NewSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Env" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NewSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NewSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Env" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -535,7 +584,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444322917096</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="new structure">
+      <created>1444323046749</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1444323046749</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -550,7 +605,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4237037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5274074" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17791411" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -596,13 +651,13 @@
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Env/Schedulers/RandomScheduler.java</url>
-          <line>37</line>
+          <url>file://$PROJECT_DIR$/src/Env/Entities/Schedule.java</url>
+          <line>29</line>
           <properties />
-          <option name="timeStamp" value="30" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="31" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -939,14 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Env/Entities/SchedItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Env/Entities/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -998,12 +1045,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utilities/ScheduleVisualizer.java">
+    <entry file="file://$PROJECT_DIR$/src/Experiments/FirstTestRun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="29" selection-start-line="60" selection-start-column="29" selection-end-line="60" selection-end-column="29" />
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#791#797#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1011,7 +1059,7 @@
     <entry file="file://$PROJECT_DIR$/src/Env/Simulator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1020,30 +1068,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Env/Entities/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.5207756">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#269#270#0" expanded="true" />
             <element signature="e#342#343#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Env/Schedulers/RandomScheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Env/Context.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="85" selection-start-line="66" selection-start-column="85" selection-end-line="66" selection-end-column="85" />
+          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Env/Schedulers/RandomScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1051,18 +1099,34 @@
     <entry file="file://$PROJECT_DIR$/src/Env/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Experiments/FirstTestRun.java">
+    <entry file="file://$PROJECT_DIR$/src/Env/Entities/SchedItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43490306">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding>
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#630#631#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utilities/ScheduleVisualizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29520866">
+          <caret line="68" column="31" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#791#797#0" expanded="true" />
           </folding>
         </state>
       </provider>

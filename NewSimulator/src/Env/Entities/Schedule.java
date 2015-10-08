@@ -26,11 +26,17 @@ public class Schedule {
     }
 
     public double getNodeLastTime(Context ctx, Node n) {
+        //TODO refactor this chaos
         ArrayList<SchedItem> nodeTasks = schedule.get(n);
-        if (nodeTasks.isEmpty()) {
-            return ctx.getTime();
+        double schedTime = ctx.getTime();
+        if (!nodeTasks.isEmpty()) {
+            schedTime = Math.max(nodeTasks.get(nodeTasks.size() - 1).getEndTime(), ctx.getTime());
         }
-        return nodeTasks.get(nodeTasks.size() - 1).getEndTime();
+        double nodeExecEnd = ctx.getTime();
+        if (n.getExecItem() != null) {
+            nodeExecEnd = Math.max(n.getExecItem().getEndTime(), ctx.getTime());
+        }
+        return Math.max(nodeExecEnd, schedTime);
     }
 
     // TODO Java should has some standard clone methods

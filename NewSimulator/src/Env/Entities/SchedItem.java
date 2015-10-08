@@ -12,6 +12,7 @@ public class SchedItem {
     private Task task;
     private double startTime;
     private double endTime;
+    private boolean isFailed;
 
 
     public SchedItem(Node node, Task task, double startTime, double endTime) {
@@ -19,6 +20,7 @@ public class SchedItem {
         this.task = task;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.isFailed = false;
     }
 
     public Node getNode() {
@@ -35,6 +37,14 @@ public class SchedItem {
 
     public double getEndTime() {
         return endTime;
+    }
+
+    public void setStatus(boolean status) {
+        isFailed = status;
+    }
+
+    public boolean isFailed(){
+        return this.isFailed;
     }
 
 }
