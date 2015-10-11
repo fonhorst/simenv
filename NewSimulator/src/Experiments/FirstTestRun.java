@@ -21,7 +21,7 @@ import java.util.Random;
  */
 public class FirstTestRun {
 
-    public static void main(String[] args) throws TransformerException {
+    public static void main(String[] args) {
 
         Random rnd = new Random();
 
